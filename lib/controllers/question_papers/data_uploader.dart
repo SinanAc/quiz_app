@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/firebase_ref/references.dart';
 import 'package:quiz_app/models/question_ppr_model.dart';
 
 class DataUploader extends GetxController {
@@ -32,5 +32,15 @@ class DataUploader extends GetxController {
           .add(QuestionPaperModel.fromJson(json.decode(stringPaperContent)));
     }
     final WriteBatch batch = fireStore.batch();
+    for (QuestionPaperModel paper in questionPapers) {
+      batch.set(questioPaperRF.doc(paper.id), {
+        'title': paper.title,
+        'image_url': paper.imageUrl,
+        'description': paper.description,
+        'time_seconds':paper.timeSeconds,
+        'questions_count': paper.questions==null ? 0 : paper.questions?.length
+      });
+    }
+    await batch.commit();
   }
 }

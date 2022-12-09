@@ -1,17 +1,18 @@
 import 'package:get/get.dart';
 
-class AuthController extends GetxController{
+class AuthController extends GetxController {
   @override
   void onReady() {
     initAuth();
     super.onReady();
   }
 
-  void initAuth(){
+  Future<void> initAuth() async {
+    await Future.delayed(const Duration(seconds: 1));
     navigateToIntro();
   }
 
-  void navigateToIntro(){
+  void navigateToIntro() {
     Get.offAllNamed('/intro');
   }
 }

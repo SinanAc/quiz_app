@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/bindings/initial_bindings.dart';
+import 'package:quiz_app/controllers/theme_controller.dart';
 import 'package:quiz_app/routs/routs.dart';
 
 Future<void> main() async {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: AppRouts.routs()
+      theme: Get.find<ThemeController>().lightTheme,
+      getPages: AppRouts.routs(),
     );
   }
 }

@@ -20,8 +20,12 @@ class QuestionPaperController extends GetxController {
     ];
     try {
       for (String img in imgNameList) {
-        final imgUrl =await Get.find<FirebaseStorageService>().getImage(img);
-        allPaperImages.add(imgUrl??'');
+        final imgUrl = await Get.find<FirebaseStorageService>().getImage(img);
+        if (imgUrl != null) {
+          allPaperImages.add(imgUrl);
+        } else {
+          log('===nullllllssssss=======');
+        }
       }
     } catch (e) {
       log(e.toString());

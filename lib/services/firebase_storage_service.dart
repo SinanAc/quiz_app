@@ -1,7 +1,6 @@
-import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:developer';
 import 'package:get/get.dart';
-
-Reference get firebaseStoreage => FirebaseStorage.instance.ref();
+import 'package:quiz_app/firebase_ref/references.dart';
 
 class FirebaseStorageService extends GetxService {
   Future<String?> getImage(String? imgName) async {
@@ -9,12 +8,13 @@ class FirebaseStorageService extends GetxService {
       return null;
     }
     try {
-      final urlRef = firebaseStoreage
-          .child('question_paper_images')
-          .child('${imgName.toLowerCase()}.png');
-      String imgUrl = await urlRef.getDownloadURL();
+      var urlRef = firebaseStoreage
+          .child("question_paper_images")
+          .child('$imgName.png');
+      var imgUrl = await urlRef.getDownloadURL();
       return imgUrl;
     } catch (_) {
+      log('firebase storage catch=====');
       return null;
     }
   }

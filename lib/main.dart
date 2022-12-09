@@ -6,7 +6,7 @@ import 'package:quiz_app/routs/routs.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  //await Firebase.initializeApp();
   InitialBindings().dependencies();
   runApp(const MyApp());
 }

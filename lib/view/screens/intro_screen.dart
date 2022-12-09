@@ -32,7 +32,7 @@ class IntroScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 CircleButton(
-                  ontap: () {},
+                  ontap: () => Get.offAllNamed('/home'),
                   child: const Icon(
                     Icons.arrow_forward,
                     size: 35,

@@ -7,10 +7,11 @@ class QuestionPaperController extends GetxController {
   final allPaperImages = <String>[].obs;
   @override
   void onReady() {
+    getAllPapers();
     super.onReady();
   }
 
-  void getAllPapers() async {
+  Future<void> getAllPapers() async {
     List<String> imgNameList = [
       'biology',
       'chemistry',

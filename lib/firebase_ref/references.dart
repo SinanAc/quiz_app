@@ -7,6 +7,5 @@ final questioPaperRF = fireStore.collection('questionPapers');
 DocumentReference questionRF({
   required String paperId,
   required String questionId,
-}) {
-  return questioPaperRF.doc(paperId).collection('questions').doc(questionId);
-}
+}) =>
+    questioPaperRF.doc(paperId).collection('questions').doc(questionId);

@@ -15,23 +15,25 @@ class QuestionPaperModel {
     this.questions,
   });
 
-  QuestionPaperModel.fromJson(Map<String, dynamic> json) :
-    id = json['id'] as String,
-    title = json['title'] as String,
-    imageUrl = json['image_url'] as String,
-    description = json['Description'] as String,
-    timeSeconds = json['time_seconds'],
-    questions = (json['questions'] as List).map((dynamic e) => Questions.fromJson(e as Map<String,dynamic>)).toList();
+  QuestionPaperModel.fromJson(Map<String, dynamic> json)
+      : id = json['id'] as String,
+        title = json['title'] as String,
+        imageUrl = json['image_url'] as String,
+        description = json['Description'] as String,
+        timeSeconds = json['time_seconds'],
+        questions = (json['questions'] as List)
+            .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
+            .toList();
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['title'] = title;
-    data['image_url'] = imageUrl;
-    data['Description'] = description;
-    data['time_seconds'] = timeSeconds;
-    return data;
-  }
+  // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['id'] = id;
+  //   data['title'] = title;
+  //   data['image_url'] = imageUrl;
+  //   data['Description'] = description;
+  //   data['time_seconds'] = timeSeconds;
+  //   return data;
+  // }
 }
 
 class Questions {
@@ -54,14 +56,14 @@ class Questions {
             (json['answers'] as List).map((e) => Answers.fromJson(e)).toList(),
         correctAnswer = json['correct_answer'];
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['question'] = question;
-    data['answers'] = answers.map((v) => v.toJson()).toList();
-    data['correct_answer'] = correctAnswer;
-    return data;
-  }
+  // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['id'] = id;
+  //   data['question'] = question;
+  //   data['answers'] = answers.map((v) => v.toJson()).toList();
+  //   data['correct_answer'] = correctAnswer;
+  //   return data;
+  // }
 }
 
 class Answers {
@@ -77,10 +79,10 @@ class Answers {
       : identifier = json['identifier'],
         answer = json['Answer'];
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['identifier'] = identifier;
-    data['Answer'] = answer;
-    return data;
-  }
+  // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['identifier'] = identifier;
+  //   data['Answer'] = answer;
+  //   return data;
+  // }
 }
